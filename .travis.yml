@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: cjEJA9Z9Ppl5o3ONw+7LLDgV992YWGn7x1fnUBxS5RyiM0UAM6r4Hr5r23cmqRzB7SFNuEX3/6jgqJHneQ7fc7eRcRG2Dj+SKp/uRSZ0cfcQBGWonBC10gnNE2f83WdziJ4pM2qWzQIVSJkotJN6UCsImQQkRVCW35cVCjgtnxFCg3TyJzoyrenIBSKZE3EvME6m4w0W0UX01dCq65MDqFBWeACy2knEqpNkZKlah44DE+0rruHQljbcc7cHVqx9PHylwL1celW9kHBfUOVKRa/rPB3FuvM68W1bqNZA1AYdCfEckzeXmFGAphXe60TzTpNZEkYjnLG6K99UpDcQkzs0AenGY9+XNouRduFQ4jQVQZtgvaalQ0TgjfAc15M2ZiyaCrl56eA1GIHRPoOBClWM+SRHO2XWgKbG5nWGohDsVG/OLZI8xNt9zjWmENBmmihnBab3DtNqJBelhR/B8Fv2Gvf0DMhTrkAW8hhpAWSsBKEwmLzY+70y15gXN3MlSYsC38vZHIcWhNoOJfFmvC5rahAq66QYOm8Ku/5qtWtWlCaUnz/ufQPGu8SpEmlTO5PIST0r3Iev+eMIpixJExqgb+6APyiLaJujTaqu/wax2pApidlOnULGuG7t3K+5+09C2Xa0gdQ/viS54ujVSoZpw76uHQmb8MbFpsBrBiU=
+  app: peepchat-timbo
+  on:
+    repo: timbo/peepchat-timbo
